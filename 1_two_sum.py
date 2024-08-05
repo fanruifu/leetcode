@@ -25,3 +25,27 @@ class Solution(object):
             for j in range(i+1,len(nums)):
                 if nums[i]+nums[j]==target:
                     return[i,j]
+                
+# =============================================================================
+# hashmap             
+# =============================================================================
+def two_sum(nums, target):
+    hashmap = {}
+    
+    for index, num in enumerate(nums):
+        complement = target - num
+        if complement in hashmap:
+            return [hashmap[complement], index]
+        hashmap[num] = index
+    
+    return None
+
+# Example:
+nums = [2, 7, 11, 15]
+target = 9
+result = two_sum(nums, target)
+
+if result:
+    print(f"The indices of the two numbers that add up to the target are: {result}")
+else:
+    print("No two sum solution found.")
